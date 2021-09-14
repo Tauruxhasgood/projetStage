@@ -1,11 +1,13 @@
 import axios from 'axios'
 
 const state = {
+    // on déclare notre state listArticle comme objet vide
     listArticle: [],
     flash: ''
 }
 
 const mutations = {
+    // on demande que la mutation modifie le state ou on a déclarer le listArticle
     setListArticle (state, value) {
         state.listArticle = value
     },
@@ -27,15 +29,29 @@ const actions = {
         axios.post("/article", payload)
             .then(res => {
                 console.log(res);
-                this.$router.go('/')
+                // this.$router.go('/')
                 commit('setFlash', res.data.message)
+                // on commit les changements du state
+                commit('setListArticle', res.data.listArticle)
             })
             .catch(err => console.log(err))
-    }
+    },
 
+    httpFormEditArticle({ commit }, payload) {
+        console.log('formulaire update article :', payload);
+        axios.put(`/article/${payload._id}`, {
+            title: payload.title,
+            description: payload.description,
+            content: payload.content
+        }).then(res => {
+            commit('setListArticle', res.data.listArticle)
+        })
+        .catch(err => console.log(err))
+    }
 }
 
 const getters = {
+    // le getters reste à l'écoute de la modification du state
     listArticleGetter: state => {
         return state.listArticle
     },

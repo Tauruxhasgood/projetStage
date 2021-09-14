@@ -16,7 +16,7 @@ router.route('/article/:id')
     .delete(adminController.delArticleById)
 
 
-// Créeation route login et register
+// Création route login et register
 router.route('/login')
      .post(AuthController.login)
 

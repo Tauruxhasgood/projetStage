@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- message indiquant que l'article à été créée (voir store article pour le getters) -->
     <p class="text-h5 text-center text-dark"> {{ flashGetter }} </p>
       <!-- TABS -->
     <q-tabs
@@ -13,7 +14,8 @@
       <q-tab name="headers" icon="photo" label="Headers" />
       <q-tab name="cards" icon="style" label="Cards" />
       <q-tab name="messages" icon="mail" label="Messages" />
-        <q-tab name="others" icon="group_work" label="Others" />
+      <q-tab name="others" icon="group_work" label="Others" />
+    
     </q-tabs>
     <q-separator/>
     <!-- CONTENU TABS ADMIN -->
@@ -47,7 +49,7 @@ import { mapGetters } from 'vuex'
 export default defineComponent  ({
     data() {
       return {
-       tab: ""
+       tab: "headers"
       }
          
     },

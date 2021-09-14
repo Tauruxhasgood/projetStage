@@ -18,28 +18,31 @@ exports.getArticle = async (req, res) => {
 
 // -> FONCTION ADD ARTICLE
 exports.addArticle = async (req, res) => {
-    const dbArticle = await Article.find({})
     console.log('info de dbArticle :', req.body)
-    Article.create({
-        ...req.body,
-    },
-        res.json({
-            message: 'Article Créée',
-            
-        }))
+    
+    // si rien n'est inscrit dans req.body message d'erreur qui s'affiche
+    if (!req.body) res.status(502).json({ message: 'Une erreur est survenu !' })
 
+    else { 
+        await Article.create({ ...req.body })
+
+        res.json({
+            // on renvoi un message qui valide la création et pour recharger avec la nouvelle création, on appel la DB
+            message: 'Article Créée',
+            listArticle: await Article.find({})
+        })
+    }
 }
 
 // -> FONCTION MODIFY ARTICLE
 exports.modifyArticleById = async (req, res) => {
-    const dbArticle = await Article.find({})
-    console.log('Adm Ctrlr MOD.art(id)')
-    Article.findByIdAndUpdate(req.params.id, {
-        ...req.body
-    }, (err, data) => {
-        if (err) console.log(err)
-        res.json('Article Modified: ')
-    })
+    console.log('info reqbody :',req.body);
+    // await Article.findByIdAndUpdate(req.params.id, {
+    //     ...req.body
+    // }, (err, data) => {
+    //     if (err) console.log(err)
+    //     res.json('Article Modifié')
+    // })
 }
 
 // -> FONCTION DELETE ARTICLE BY ID

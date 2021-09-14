@@ -1,7 +1,7 @@
 <template>
     <div class="q-pa-md q-gutter-sm">
         <!-- le onReset vient dire au clic qu'il faut reset les données inscrites dans le formulaire et les CGU (voir methods ci-dessous) -->
-        <q-btn label="Add Article" color="primary" @click="bar = true, onReset()" />
+        <q-btn round icon="delete" color="primary" @click="bar = true, onReset()" />
         <q-dialog v-model="bar" persistent transition-show="flip-down" transition-hide="flip-up">
         <q-card class="bg-primary text-white">
             <q-bar>
