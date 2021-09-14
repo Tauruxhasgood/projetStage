@@ -103,6 +103,7 @@
               >
                 <p class="text-h6 text-grey-2">Inscription</p>
                 <!-- INPUT USERNAME le v-model indique l'intitulé qui sera repris dans le AuthController -->
+                <!-- le form reprends les data déclaré dans le script en bas de page -->
                 <q-input
                   filled
                   bg-color="orange-2"

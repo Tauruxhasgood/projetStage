@@ -19,11 +19,14 @@ exports.getArticle = async (req, res) => {
 // -> FONCTION ADD ARTICLE
 exports.addArticle = async (req, res) => {
     const dbArticle = await Article.find({})
-    console.log('Adm Ctrlr ADD.art ', dbArticle)
+    console.log('info de dbArticle :', req.body)
     Article.create({
-        ...req.body
+        ...req.body,
     },
-        res.json('Article Created:'))
+        res.json({
+            message: 'Article Créée',
+            
+        }))
 
 }
 

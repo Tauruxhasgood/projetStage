@@ -6,12 +6,12 @@ const express = require('express'),
       AuthController = require('./controllers/AuthController'),
       ContactController = require ('./controllers/ContactController')
 
-router.route('/test')
+router.route('/article')
      .get(adminController.getArticle)
      .post(adminController.addArticle)
      .delete(adminController.delAllArticle)
 
-router.route('/test/:id')
+router.route('/article/:id')
     .put(adminController.modifyArticleById)
     .delete(adminController.delArticleById)
 

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p class="text-h5 text-center text-dark"> {{ flashGetter }} </p>
       <!-- TABS -->
     <q-tabs
       v-model="tab"
@@ -8,6 +9,7 @@
       indicator-color="primary"
       class="bg-lime shadow-2"
     >
+      
       <q-tab name="headers" icon="photo" label="Headers" />
       <q-tab name="cards" icon="style" label="Cards" />
       <q-tab name="messages" icon="mail" label="Messages" />
@@ -40,6 +42,7 @@ import { defineComponent } from 'vue'
 import Header from 'src/components/admin/tabs/tabHeaders.vue'
 import Cards from 'src/components/admin/tabs/tabCards.vue'
 import Messages from 'src/components/admin/tabs/tabMessages.vue'
+import { mapGetters } from 'vuex'
 
 export default defineComponent  ({
     data() {
@@ -53,6 +56,9 @@ export default defineComponent  ({
          Cards,
          Messages
     },
+    computed: {
+    ...mapGetters('article', ['flashGetter'])
+  }
     
 })
 </script>
