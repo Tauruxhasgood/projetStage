@@ -32,7 +32,7 @@
             <Messages/>
           </q-tab-panel>
           <q-tab-panel name="others">
-            
+            <Others/>
           </q-tab-panel>
     </q-tab-panels>
   </div>
@@ -44,6 +44,7 @@ import { defineComponent } from 'vue'
 import Header from 'src/components/admin/tabs/tabHeaders.vue'
 import Cards from 'src/components/admin/tabs/tabCards.vue'
 import Messages from 'src/components/admin/tabs/tabMessages.vue'
+import Others from 'src/components/admin/tabs/tabOthers.vue'
 import { mapGetters } from 'vuex'
 
 export default defineComponent  ({
@@ -56,7 +57,8 @@ export default defineComponent  ({
     components: {
          Header,
          Cards,
-         Messages
+         Messages,
+         Others
     },
     computed: {
     ...mapGetters('article', ['flashGetter'])

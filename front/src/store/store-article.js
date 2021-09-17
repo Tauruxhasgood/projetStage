@@ -37,9 +37,9 @@ const actions = {
             .catch(err => console.log(err))
     },
 
-    httpFormEditArticle({ commit }, payload) {
+    editOneArticle({ commit }, payload) {
         console.log('formulaire update article :', payload);
-        axios.put(`/article/${payload._id}`, {
+        axios.put('/article/' + payload.id, {
             title: payload.title,
             description: payload.description,
             content: payload.content
@@ -47,6 +47,19 @@ const actions = {
             commit('setListArticle', res.data.listArticle)
         })
         .catch(err => console.log(err))
+    },
+
+    deleteOneArticle ({commit}, payload) {
+        axios.delete(`/article/${payload}`).then(res => {
+            commit('setListArticle', res.data.listArticle)
+        }).catch((err) => console.log(err))
+    },
+
+    deleteAllArticle ({commit}, payload) {
+        axios.delete('/article', payload)
+            .then(res => {
+                commit('setListArticle', res.data.listArticle)
+            }).catch((err) => console.log(err))
     }
 }
 

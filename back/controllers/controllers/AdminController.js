@@ -37,12 +37,12 @@ exports.addArticle = async (req, res) => {
 // -> FONCTION MODIFY ARTICLE
 exports.modifyArticleById = async (req, res) => {
     console.log('info reqbody :',req.body);
-    // await Article.findByIdAndUpdate(req.params.id, {
-    //     ...req.body
-    // }, (err, data) => {
-    //     if (err) console.log(err)
-    //     res.json('Article Modifié')
-    // })
+    await Article.findByIdAndUpdate(req.params.id, {
+        ...req.body
+    }, (err, data) => {
+        if (err) console.log(err)
+        res.json('Article Modifié')
+    })
 }
 
 // -> FONCTION DELETE ARTICLE BY ID
