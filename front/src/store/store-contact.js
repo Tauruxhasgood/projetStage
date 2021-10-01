@@ -30,9 +30,8 @@ const actions = {
        .then(res => {
            console.log(res)
 
-           this.$router.go('/contact')
-           
            commit('setFlash', res.data.message)
+           commit('setListMessage', res.data.listMessage)
         })
        .catch(err => console.log(err))
     },
@@ -62,6 +61,6 @@ export default {
     state,
     mutations,
     actions,
-    getters,
+    getters
     
 }

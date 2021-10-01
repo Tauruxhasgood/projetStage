@@ -17,6 +17,7 @@
           }"
         >
           <div class="text-h3 text-white text-center">Stage Site Header</div>
+          
         </div>
       </template>
     </q-parallax>

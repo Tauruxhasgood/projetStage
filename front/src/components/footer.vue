@@ -1,7 +1,7 @@
 <!--COMPONENT FOOTER-->
 <template>
   <div class="q-pb-xl">
-    <q-footer elevated class="bg-transparent">
+    <q-footer elevated class="bg-transparent ">
       <div class="row">
         <q-toolbar class="text-center">
           <div class="col-3">

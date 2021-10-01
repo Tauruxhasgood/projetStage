@@ -1,16 +1,16 @@
 <template>
   <div class="q-pa-md">
-    <h2>nom :  {{getListMessage}}</h2>
      <q-table
        title="Messages"
        :data="getListMessage"
        :columns="columns"
        row-key="name"
+       :rows="getListMessage"
        :filter="filter"
        :loading="loading">
       >
         <template v-slot:body="props">
-          <div>
+         
               <q-tr :props="props">
                  <q-td auto>
                      <p>{{ props.row.nom }}</p>
@@ -25,7 +25,7 @@
                      <p>{{props.row.message }}</p>
                  </q-td>
              </q-tr>
-          </div>      
+      
         </template>
 
      </q-table>
@@ -51,10 +51,11 @@ export default {
                   required: true,
                   label: 'Nom',
                   align: 'left',
-                  field: row => row.name,
-                  format: val => `${val}`,
                   sortable: true
-              }
+              },
+              { name: 'email', align: 'left', label: 'Email :', field: 'email', sortable: true },
+              { name: 'sujet', label: 'Sujet :', align:'left',  field: 'sujet', sortable: true },
+              { name: 'message', label: 'Message :', align:'left',  field: 'message', sortable: true }
               
           ]
        }
@@ -66,14 +67,8 @@ export default {
  
   computed: {
     ...mapGetters('contact', ['getListMessage'])
+    
   },
-
-  props: {
-      message: {
-        type: Object
-     }
-  },
-  
 
   mounted () {
     this.httpGetListMessage()

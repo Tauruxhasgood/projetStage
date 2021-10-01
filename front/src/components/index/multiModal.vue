@@ -74,7 +74,7 @@
                 />
 
                 <div>
-                  <q-btn label="Envoyer" type="submit" color="grey-10" />
+                  <q-btn label="Envoyer" type="submit" color="grey-10"  @click="dialog = false, onReset()" />
                   <q-btn
                     label="Reset"
                     type="reset"
@@ -162,6 +162,7 @@
 
                 <div>
                   <q-btn
+                  @click="dialog = false, onReset()"
                     label="Envoyer"
                     type="submit"
                     color="grey-2"
@@ -196,6 +197,7 @@
 
                 <div>
                   <q-btn
+                  @click="dialog = false, onReset()"
                     label="Envoyer"
                     class="text-grey-10"
                     type="submit"

@@ -21,9 +21,7 @@ const actions = {
             .then(res => {
                 console.log(res);
                 
-                this.$router.go('/')
-                console.log(res)
-                commit('setflash', res.data.message)
+              
             })
             .catch(err => console.log(err))
     },
@@ -33,7 +31,7 @@ const actions = {
         axios.post("/register", payload)
             .then(res => {
                 console.log(res)
-                this.$router.go('/')
+                
                 // on commit setFlash avec une response qui correspond au data envoyées + le message déclaré dans le controller "AuthController"
                 commit('setFlash', res.data.message)
             })

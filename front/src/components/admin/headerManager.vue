@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
       <!-- TABS -->
     <q-tabs
       v-model="tab"
@@ -18,11 +18,11 @@
     <q-tab-panels v-model="tab" animated>
           <q-tab-panel name="headers">
               <Header/>
-            <div class="text-amber"></div>
+            
           </q-tab-panel>
           <q-tab-panel name="cards">
               <Cards/>
-            <div class="text-amber"></div>
+          
           </q-tab-panel>
           <q-tab-panel name="messages">
             <Messages/>
@@ -44,7 +44,7 @@ import Messages from 'src/components/admin/tabs/tabMessages.vue'
 export default defineComponent  ({
     data() {
       return {
-       tab: ""
+       tab: "headers"
       }
          
     },
@@ -52,7 +52,7 @@ export default defineComponent  ({
          Header,
          Cards,
          Messages
-    },
+    }
     
 })
 </script>

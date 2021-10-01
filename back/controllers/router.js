@@ -6,6 +6,8 @@ const express = require('express'),
       AuthController = require('./controllers/AuthController'),
       ContactController = require ('./controllers/ContactController')
 
+const upload = require('./middleware/multer')
+
 router.route('/test')
      .get(adminController.getArticle)
      .post(adminController.addArticle)
@@ -27,5 +29,14 @@ router.route('/register')
 router.route('/contact')
      .post(ContactController.sendContact)
      .get(ContactController.getContact)
+
+router.route('/header')
+     .post(upload.array('imagesArray'),adminController.newHeader)
+     .get(adminController.getHeader)
+     .delete(adminController.deleteAllHeaders)
+
+router.route('/header/:id')
+     .put(adminController.modifyHeaderById)
+     .delete(adminController.delArticleById)
 
 module.exports = router;

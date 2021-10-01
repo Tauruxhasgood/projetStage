@@ -127,6 +127,10 @@ methods: {
         this.httpMessageContact(this.message)
     },
     onReset() {
+     this.message = {}
+      
+    },
+    reset() {
       this.message = {}
     },
 

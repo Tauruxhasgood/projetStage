@@ -4,7 +4,7 @@
 const Message = require('../../database/Message')
 
 // -> FONCTION ENVOI DE MESSAGE 
-exports.sendContact = (req, res) => {
+exports.sendContact = async  (req, res) => {
     console.log('controller contact: ', req.body)
 
     if (!req.body.nom || ! req.body.email || !req.body.sujet || !req.body.message) {
@@ -15,14 +15,12 @@ exports.sendContact = (req, res) => {
 
     } else  {
 
-        Message.create({
-            ...req.body
-        }, (err, message) => {
-            if (err) throw err
-        })
-            res.json({
-               message: 'message transmis'
-           })
+     await Message.create({...req.body})
+        
+     res.json({
+               message: 'message transmis',
+               listMessage: await Message.find({})
+            })
     }
 }
 
@@ -33,7 +31,7 @@ exports.getContact = async (req, res) => {
              status: 200,
              listMessage: data,
              message: "liste de message récupérée avec succès"
-         })
+            })
      }).catch(err => console.log(err))
 
 }
